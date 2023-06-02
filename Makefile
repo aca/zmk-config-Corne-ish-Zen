@@ -7,8 +7,7 @@ right:
 	ls /mnt/key
 
 install:
-	gh run download
-	gh run download $(gh run list --limit=1 --json databaseId | jq '.[0].databaseId' -r)
+	bash download.sh
 
 mount3:
 	bash ./mount
@@ -16,4 +15,3 @@ mount3:
 clean:
 	rm corneish*.uf2
 
-gh run list --limit=1 --json databaseId | jq '.[0].databaseId' -r
