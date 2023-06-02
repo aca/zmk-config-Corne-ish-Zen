@@ -6,3 +6,6 @@ right:
 
 install:
 	gh run download
+
+mount:
+	sudo mount /dev/$(lsblk --json | jq '.blockdevices | .[] |  select(.size == "32.1M") | .name' -r) /mnt/key
